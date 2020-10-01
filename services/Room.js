@@ -33,13 +33,13 @@ class RoomsService {
         return deletedRoom;
     }
 
-    async filterBedroom(room) {
-        const filterRoom = await this.mongoDB.filterBedroom(this.collection, room)
-        return filterRoom;
+    async filterRooms(room) {
+        const filterRooms = await this.mongoDB.filterRooms(this.collection, room)
+        return filterRooms;
     }
 
-    async getBedroomRecents() {
-        const bedroomRecents = await this.mongoDB.getBedroomRecents(this.collection);
+    async getRoomsecents() {
+        const bedroomRecents = await this.mongoDB.getRoomsRecents(this.collection);
         return  bedroomRecents;
     }
 

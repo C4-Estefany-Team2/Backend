@@ -14,7 +14,7 @@ const createRoomSchema = {
   name: roomNameSchema.required(),
   images: roomImagesSchema,
   description: roomDescriptionSchema.required(),
-  location: roomLocationSchema.required(),
+  location: roomLocationSchema.required().max(50),
   price: roomPriceSchema.required(),
   ocupation: roomOcupationSchema.required(),
   createdAt: roomcreatedAt,
@@ -28,6 +28,10 @@ const updateRoomSchema = {
   price: roomPriceSchema,
   ocupation: roomOcupationSchema,
 };
+
+
+
+
 
 module.exports = {
   roomIdSchema,
