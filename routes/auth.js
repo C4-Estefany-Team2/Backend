@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const boom = require('@hapi/boom');
+const axios = require('axios');
 const jwt = require('jsonwebtoken');
 const ApiKeysService = require('../services/apiKeys');
 const UserService = require('../services/users');
@@ -68,12 +69,13 @@ function authApi(app) {
     })(req, res, next);
   });
 
+
+
   router.post('/sign-up', validationHandler(createUserSchema), async function(req, res, next) {
      const { body: user } = req;
 
      try{
         const createdUserId = await usersService.createUser({ user });
-
         res.status(201).json({
           data: createdUserId,
           message: 'user created'

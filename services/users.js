@@ -12,6 +12,11 @@ class UsersService {
     return user;
   }
 
+  async getRoom({ roomId }) {
+    const room = await this.mongoDB.get(this.collection, roomId);
+    return room || {};
+  }
+
   async createUser({ user }) {
     const { name, email, password, data, phone } = user;
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -27,5 +32,6 @@ class UsersService {
     return createUserId;
   }
 }
+
 
 module.exports =  UsersService;
