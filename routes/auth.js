@@ -30,6 +30,7 @@ function authApi(app) {
     }
 
     passport.authenticate('basic', function(error, user) {
+      
       try {
         if (error || !user) {
           next(boom.unauthorized());
@@ -72,14 +73,30 @@ function authApi(app) {
 
 
   router.post('/sign-up', validationHandler(createUserSchema), async function(req, res, next) {
-     const { body: user } = req;
+     const { body: user, apiKeyToken } = req;
+
+     if (!apiKeyToken) {
+      next(boom.unauthorized('apiKeyToken is required'));
+     }
 
      try{
-        const createdUserId = await usersService.createUser({ user });
+
+      const apiKey = await apiKeysService.getApiKey({ token: apiKeyToken });
+
+      if (!apiKey) {
+        next(boom.unauthorized());
+      }
+
+      const token = jwt.sign(payload, config.authJwtSecret, {
+        expiresIn: '120m'
+      });
+      const createdUserId = await usersService.createUser({ user });
         res.status(201).json({
+          token,
           data: createdUserId,
           message: 'user created'
         })
+        
      }catch(error) {
        next(error);
      }

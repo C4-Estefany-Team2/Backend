@@ -15,6 +15,9 @@ const roomDeciptionLocalSchema = joi.string();
 const roomLocationSchema = joi.string().max(50);
 const roomPriceSchema = joi.number().max(1000000);
 const roomOcupationSchema = joi.number().max(30).min(1);
+const roomIdHostSchema = joi.number(),
+const roomPhotoHostSchema = joi.array(),
+const roomNameHostSchema =joi.string(),
 const roomcreatedAt = joi.date();
 
 const createRoomSchema = {
@@ -31,6 +34,9 @@ const createRoomSchema = {
   location: roomLocationSchema.required().max(50),
   price: roomPriceSchema.required(),
   ocupation: roomOcupationSchema.required(),
+  idHost: roomIdHostSchema,
+  photoHost: roomPhotoHostSchema,
+  nameHost: roomNameHostSchema,
   createdAt: roomcreatedAt,
 };
 
@@ -48,6 +54,9 @@ const updateRoomSchema = {
   location: roomLocationSchema,
   price: roomPriceSchema,
   ocupation: roomOcupationSchema,
+  idHost: roomIdHostSchema,
+  photoHost: roomPhotoHostSchema,
+  nameHost: roomNameHostSchema,
 };
 
 

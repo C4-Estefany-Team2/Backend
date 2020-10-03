@@ -14,15 +14,12 @@ const createUserSchema = {
     .email()
     .required(),
   password: joi.string().required(),
-  data: joi.date().required(),
+  photoHost: joi.array(),
+  years: joi.number().required(),
   phone: joi.number().required(),
+  sex: joi.string().required(),
+  rol: joi.string().required(),
   isAdmin: joi.boolean(),
-
-//Datos si se hace los match
-
-  datoUno: joi.string(),
-  datoDos: joi.string(),
-  datoTres: joi.string()
 };
 
 module.exports = {
