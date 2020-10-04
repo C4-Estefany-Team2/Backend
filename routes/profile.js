@@ -69,7 +69,7 @@ function perfilesApi(app) {
         async function (req, res, next) {
           const { perfileId } = req.params;
           try {
-            const perfile = await perfilesService.getPerfiles({
+            const perfile = await perfilesService.getPerfile({
               perfileId,
             });
     
