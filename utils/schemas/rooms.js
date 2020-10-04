@@ -11,8 +11,13 @@ const roomOcupationSchema = joi.number().max(30).min(1);
 const roomIdHostSchema = joi.string().max(500);
 const roomCorreoHostSchema = joi.string().max(20);
 const roomTelefonoHostSchema = joi.number();
-const  roomEdadHostSchema = joi.number();
-const  roomNameHost = joi.string();
+const roomEdadHostSchema = joi.number();
+const roomNameHost = joi.string();
+const roomWcSchema = joi.boolean();
+const roomWifiSchema = joi.boolean();
+const roomDesayunoSchema = joi.boolean();
+const roomLavanderiaSchema = joi.boolean();
+const roomTelefonoSchema = joi.boolean();
 const roomcreatedAt = joi.date();
 
 const createRoomSchema = {
@@ -24,6 +29,11 @@ const createRoomSchema = {
   ocupation: roomOcupationSchema.required(),
   idHost: roomIdHostSchema,
   nameHost: roomNameHost,
+  wc: roomWcSchema,
+  Wifi: roomWifiSchema,
+  desyuno: roomDesayunoSchema,
+  Lacanderia: roomLavanderiaSchema,
+  telefono:  roomTelefonoSchema,
   correoHost: roomCorreoHostSchema,
   telefonoHost: roomTelefonoHostSchema,
   edadHost: roomEdadHostSchema,
@@ -37,6 +47,11 @@ const updateRoomSchema = {
   location: roomLocationSchema,
   price: roomPriceSchema,
   idHost: roomIdHostSchema,
+  wc: roomWcSchema,
+  Wifi: roomWifiSchema,
+  desyuno: roomDesayunoSchema,
+  Lacanderia: roomLavanderiaSchema,
+  telefono:  roomTelefonoSchema,
   nameHost: roomNameHost,
   correoHost: roomCorreoHostSchema,
   telefonoHost: roomTelefonoHostSchema,
