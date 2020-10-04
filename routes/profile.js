@@ -38,10 +38,10 @@ function perfilesApi(app) {
 
     router.get('/search', async function (req, res, next) {
         try {
-          const perfil = await perfilesService.filterPerfiles(req.query);
+          const perfile = await perfilesService.filterPerfiles(req.query);
 
           res.status(200).json({
-            data: perfil,
+            data: perfile,
             message: 'filtro',
           });
         } catch (err) {
@@ -51,11 +51,11 @@ function perfilesApi(app) {
 
     router.get('/recents', async function (req, res, next) {
         try {
-          const perfil = await perfilesService.getPerfilesRecents();
+          const perfile = await perfilesService.getPerfilesRecents();
 
 
           res.status(200).json({
-            data: perfil,
+            data: perfile,
             message: 'recents',
           });
         } catch (err) {
@@ -65,16 +65,16 @@ function perfilesApi(app) {
 
     router.get(
         '/:perfileId',
-        validationHandler( { perfilId: perfileIdSchema,}, 'params'),
+        validationHandler( { perfileId: perfileIdSchema,}, 'params'),
         async function (req, res, next) {
-          const { perfilId } = req.params;
+          const { perfileId } = req.params;
           try {
-            const perfil = await perfilesService.getPerfiles({
-              perfilId,
+            const perfile = await perfilesService.getPerfiles({
+              perfileId,
             });
     
             res.status(200).json({
-              data: perfil,
+              data: perfile,
               message: 'Perfil retrieve',
             });
           } catch (err) {
