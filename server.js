@@ -8,8 +8,6 @@ const { config } = require('./config/index');
 const authApi = require('./routes/auth');
 const roomsApi = require('./routes/Rooms.js');
 const userRoomsApi = require('./routes/userRooms');
-const perfileApi = require('./routes/profile');
-const userPerfileApi = require('./routes/userPerfle');
 
 const {
   logErrors,
@@ -28,8 +26,7 @@ app.use(cors());
 authApi(app);
 roomsApi(app);
 userRoomsApi(app);
-perfileApi(app);
-userPerfileApi(app);
+
 
 
 app.use(notFoundHandler);
