@@ -10,7 +10,7 @@ Command Line Interface (CLI) como el CMD de Windows o GitBash de git o en su def
 Inicio 
 Clonar el repositorio te permitirá obtener una copia del proyecto en tu máquina local para propósitos de desarrollo y pruebas, para ello en el CLI ingresar la siguiente línea:
 
-$git clone https://github.com/Luis-Balderas/Ture-frontend.git
+$git clone https://github.com/C4-Estefany-Team2/Backend
 Instalación 
 Instalar las dependencias y paquetes necesarios.
 
